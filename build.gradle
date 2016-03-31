@@ -7,3 +7,10 @@ version = '1.0'
 repositories {
     mavenCentral()
 }
+
+dependencies {
+	compile 'com.datastax.cassandra:cassandra-driver-core:3.0.0'
+	compile 'com.datastax.cassandra:cassandra-driver-mapping:3.0.0'
+	compile 'com.datastax.cassandra:cassandra-driver-extras:3.0.0'
+	runtime 'org.slf4j:slf4j-simple:1.7.20'
+}
