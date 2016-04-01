@@ -1,7 +1,10 @@
 package model;
 
 public class Pizza {
-	public Pizza(String name, String ingredients) {
+	private int id;
+
+	public Pizza(int id, String name, String ingredients) {
+		this.id = id;
 		this.name = name;
 		this.ingredients = ingredients;
 	}
@@ -20,6 +23,12 @@ public class Pizza {
 	}
 	public void setIngredients(String ingredients) {
 		this.ingredients = ingredients;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

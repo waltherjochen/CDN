@@ -1,7 +1,6 @@
 package repository;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import model.Pizza;
@@ -17,7 +16,7 @@ public class PizzasInformation {
 		ResultSet results = PizzaShopDatabaseClient.getSession().execute("SELECT * FROM pizzashop.pizzas");
 		List<Pizza> pizzas = new ArrayList<>();
 		for (Row row : results) {
-			pizzas.add(new Pizza(row.getString("name"), row.getString("ingredients")));
+			pizzas.add(new Pizza(row.getInt("id"), row.getString("name"), row.getString("ingredients")));
 		}
 		this.pizzas = pizzas;
 	}

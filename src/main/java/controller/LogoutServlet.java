@@ -8,17 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import repository.PizzasInformation;
+@WebServlet("/logout")
+public class LogoutServlet extends HttpServlet {
 
-@WebServlet("/pizzas")
-public class PizzaServlet extends HttpServlet {
-
-	private static final long serialVersionUID = 5777403715790463145L;
+	private static final long serialVersionUID = -2486842898701305081L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("pizzas", new PizzasInformation().asList());
-		getServletContext().getRequestDispatcher("/pizzasPage.jsp").forward(req, resp);
+		req.getSession().invalidate();
+		resp.sendRedirect("/CDN");
 	}
-	
 }
