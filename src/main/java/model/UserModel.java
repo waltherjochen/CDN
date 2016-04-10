@@ -1,6 +1,11 @@
 package model;
 
-public class UserModel {
+import java.io.Serializable;
+
+public class UserModel implements Serializable {
+
+	private static final long serialVersionUID = 2543879975731116077L;
+
 	private Integer id;
 	private String username;
 

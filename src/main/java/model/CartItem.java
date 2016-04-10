@@ -1,7 +1,10 @@
 package model;
 
-public class CartItem {
+import java.io.Serializable;
 
+public class CartItem implements Serializable {
+
+	private static final long serialVersionUID = -841248874015973910L;
 	private Integer id;
 	private Integer pizzaId;
 	private String pizzaName;

@@ -1,6 +1,11 @@
 package model;
 
-public class PizzaModel {
+import java.io.Serializable;
+
+public class PizzaModel implements Serializable {
+
+	private static final long serialVersionUID = 8237095585588948382L;
+
 	private int id;
 
 	public PizzaModel(int id, String name, String ingredients) {
