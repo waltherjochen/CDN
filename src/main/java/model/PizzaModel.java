@@ -1,9 +1,9 @@
 package model;
 
-public class Pizza {
+public class PizzaModel {
 	private int id;
 
-	public Pizza(int id, String name, String ingredients) {
+	public PizzaModel(int id, String name, String ingredients) {
 		this.id = id;
 		this.name = name;
 		this.ingredients = ingredients;

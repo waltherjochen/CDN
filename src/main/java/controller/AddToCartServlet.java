@@ -8,17 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import repository.Pizzas;
+import repository.CartItems;
 
-@WebServlet("/pizzas")
-public class PizzaServlet extends HttpServlet {
+@WebServlet("/addToCart")
+public class AddToCartServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 5777403715790463145L;
+	private static final long serialVersionUID = 390819157893539334L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("pizzas", new Pizzas().asList());
-		getServletContext().getRequestDispatcher("/pizzasPage.jsp").forward(req, resp);
+		String pizzaId = req.getParameter("id");
+		CartItems.addItem((Integer) req.getSession().getAttribute("userId"), Integer.valueOf(pizzaId));
+		resp.sendRedirect("/CDN/cart");
 	}
 	
 }

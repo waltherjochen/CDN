@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import repository.PizzasInformation;
+import model.UserModel;
+import repository.Pizzas;
 import repository.User;
 
 @WebServlet("/login")
@@ -26,8 +27,10 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		if (User.exists(username, password)) {
-			req.getSession().setAttribute("username", username);
+		Integer userId = User.attemptLogin(username, password);
+		if (userId != null) {
+			req.getSession().setAttribute("userId", userId);
+			req.getSession().setAttribute("user", User.findById(userId));
 			resp.sendRedirect("/CDN");
 		} else {
 			resp.sendRedirect("/CDN/login");
