@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import repository.PizzasInformation;
+import repository.User;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -25,9 +26,11 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		if (username.equals("user") && password.equals("pass")) {
-			req.getSession().setAttribute("username", "user");
+		if (User.exists(username, password)) {
+			req.getSession().setAttribute("username", username);
 			resp.sendRedirect("/CDN");
+		} else {
+			resp.sendRedirect("/CDN/login");
 		}
 	}
 
