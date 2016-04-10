@@ -23,7 +23,7 @@ $ docker ps -a
 $ docker inspect <tomcat container> | grep IPA
 ```
 
-Point your browser to http://<address>:8080/CDN
+Point your browser to `http://<address>:8080/CDN`
 
 
 ## Login data
