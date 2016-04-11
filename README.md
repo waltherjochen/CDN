@@ -13,18 +13,24 @@ $ docker run -it --rm --net container:cassandra1 prismacon/ds-db seed
 ## Tomcat Setup
 
 ```bash
-$ docker run -d prismacon/ds-server
-$ docker run -d prismacon/ds-server
+$ docker run --rm prismacon/ds-server
+$ docker run --rm prismacon/ds-server
 ```
-Get the address of the Tomcat server:
+Get the addresses of the Tomcat servers:
 
 ```bash
 $ docker ps -a
-$ docker inspect <tomcat container> | grep IPA
+$ docker inspect <tomcat container 1> | grep IPAddress
+$ docker inspect <tomcat container 2> | grep IPAddress
 ```
 
-Point your browser to `http://<address>:8080/CDN`
+Usually `172.17.0.5:8080` and `172.17.0.6:8080`. You should be able to point your browser to both URLs and see the pizza shop page.
 
+## nginx Setup
+```bash
+$ docker run --rm prismacon/ds-lb
+```
+It will balance the load based on the round-robin strategy between 172.17.0.5:8080 and 172.17.0.6:8080.
 
 ## Login data
 
