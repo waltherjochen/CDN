@@ -24,13 +24,15 @@ $ docker inspect <tomcat container 1> | grep IPAddress
 $ docker inspect <tomcat container 2> | grep IPAddress
 ```
 
-Usually `172.17.0.5:8080` and `172.17.0.6:8080`. You should be able to point your browser to both URLs and see the pizza shop page.
+Usually `172.17.0.5:8080` and `172.17.0.6:8080`. You should be able to point your browser to [http://172.17.0.5:8080](http://172.17.0.5:8080) and [http://172.17.0.6:8080](http://172.17.0.6:8080) and see the pizza shop page.
 
 ## nginx Setup
 ```bash
 $ docker run --rm prismacon/ds-lb
 ```
 It will balance the load based on the round-robin strategy between 172.17.0.5:8080 and 172.17.0.6:8080.
+
+Nginx should be usually accessible on [http://172.17.0.7](http://172.17.0.7).
 
 ## Login data
 
